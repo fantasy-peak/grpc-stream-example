@@ -35,7 +35,7 @@ execute_process(COMMAND ${CMAKE_SOURCE_DIR}/bin/protoc
 
 #----------------------------------------------------------------------------------
 set(XREPO_XMAKEFILE ${CMAKE_CURRENT_SOURCE_DIR}/repo/packages/g/grpc/xmake.lua)
-xrepo_package("grpc v1.49.1" DEPS "abseil" "c-ares" "protobuf-cpp" "re2" "openssl" "zlib" )
+xrepo_package("grpc" DEPS "abseil" "c-ares" "protobuf-cpp" "re2" "openssl" "zlib" )
 find_package(gRPC CONFIG REQUIRED)
 #-----------------------------------------------------------------------------------
 
