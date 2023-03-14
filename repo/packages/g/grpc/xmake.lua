@@ -4,7 +4,7 @@ package("grpc")
     set_license("Apache-2.0 License")
 
     add_urls("https://github.com/grpc/grpc/archive/refs/tags/$(version).tar.gz")
-    add_versions("v1.50.2", "e941752638a92f21e27566903e1eb9b4a6380d70ca5ce91116b4cff6cb8fe2f2")
+    add_versions("v1.51.3", "feaeeb315133ea5e3b046c2c0231f5b86ef9d297e536a14b73e0393335f8b157")
 
     add_deps("cmake")
 

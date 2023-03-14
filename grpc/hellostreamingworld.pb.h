@@ -54,39 +54,39 @@ struct TableStruct_hellostreamingworld_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hellostreamingworld_2eproto;
 namespace hellostreamingworld {
-class HelloReply;
-struct HelloReplyDefaultTypeInternal;
-extern HelloReplyDefaultTypeInternal _HelloReply_default_instance_;
-class HelloRequest;
-struct HelloRequestDefaultTypeInternal;
-extern HelloRequestDefaultTypeInternal _HelloRequest_default_instance_;
+class Request;
+struct RequestDefaultTypeInternal;
+extern RequestDefaultTypeInternal _Request_default_instance_;
+class Response;
+struct ResponseDefaultTypeInternal;
+extern ResponseDefaultTypeInternal _Response_default_instance_;
 }  // namespace hellostreamingworld
 PROTOBUF_NAMESPACE_OPEN
-template<> ::hellostreamingworld::HelloReply* Arena::CreateMaybeMessage<::hellostreamingworld::HelloReply>(Arena*);
-template<> ::hellostreamingworld::HelloRequest* Arena::CreateMaybeMessage<::hellostreamingworld::HelloRequest>(Arena*);
+template<> ::hellostreamingworld::Request* Arena::CreateMaybeMessage<::hellostreamingworld::Request>(Arena*);
+template<> ::hellostreamingworld::Response* Arena::CreateMaybeMessage<::hellostreamingworld::Response>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace hellostreamingworld {
 
 // ===================================================================
 
-class HelloRequest final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:hellostreamingworld.HelloRequest) */ {
+class Request final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:hellostreamingworld.Request) */ {
  public:
-  inline HelloRequest() : HelloRequest(nullptr) {}
-  ~HelloRequest() override;
-  explicit constexpr HelloRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Request() : Request(nullptr) {}
+  ~Request() override;
+  explicit constexpr Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  HelloRequest(const HelloRequest& from);
-  HelloRequest(HelloRequest&& from) noexcept
-    : HelloRequest() {
+  Request(const Request& from);
+  Request(Request&& from) noexcept
+    : Request() {
     *this = ::std::move(from);
   }
 
-  inline HelloRequest& operator=(const HelloRequest& from) {
+  inline Request& operator=(const Request& from) {
     CopyFrom(from);
     return *this;
   }
-  inline HelloRequest& operator=(HelloRequest&& from) noexcept {
+  inline Request& operator=(Request&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -109,20 +109,20 @@ class HelloRequest final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const HelloRequest& default_instance() {
+  static const Request& default_instance() {
     return *internal_default_instance();
   }
-  static inline const HelloRequest* internal_default_instance() {
-    return reinterpret_cast<const HelloRequest*>(
-               &_HelloRequest_default_instance_);
+  static inline const Request* internal_default_instance() {
+    return reinterpret_cast<const Request*>(
+               &_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(HelloRequest& a, HelloRequest& b) {
+  friend void swap(Request& a, Request& b) {
     a.Swap(&b);
   }
-  inline void Swap(HelloRequest* other) {
+  inline void Swap(Request* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -135,7 +135,7 @@ class HelloRequest final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(HelloRequest* other) {
+  void UnsafeArenaSwap(Request* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -143,13 +143,13 @@ class HelloRequest final :
 
   // implements Message ----------------------------------------------
 
-  HelloRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<HelloRequest>(arena);
+  Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Request>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const HelloRequest& from);
+  void CopyFrom(const Request& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const HelloRequest& from);
+  void MergeFrom(const Request& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -166,15 +166,15 @@ class HelloRequest final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(HelloRequest* other);
+  void InternalSwap(Request* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "hellostreamingworld.HelloRequest";
+    return "hellostreamingworld.Request";
   }
   protected:
-  explicit HelloRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -191,69 +191,48 @@ class HelloRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNameFieldNumber = 1,
-    kNumGreetingsFieldNumber = 2,
+    kIntegerFieldNumber = 1,
   };
-  // string name = 1;
-  void clear_name();
-  const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
+  // int32 integer = 1;
+  void clear_integer();
+  int32_t integer() const;
+  void set_integer(int32_t value);
   private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
+  int32_t _internal_integer() const;
+  void _internal_set_integer(int32_t value);
   public:
 
-  // string num_greetings = 2;
-  void clear_num_greetings();
-  const std::string& num_greetings() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_num_greetings(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_num_greetings();
-  PROTOBUF_NODISCARD std::string* release_num_greetings();
-  void set_allocated_num_greetings(std::string* num_greetings);
-  private:
-  const std::string& _internal_num_greetings() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_num_greetings(const std::string& value);
-  std::string* _internal_mutable_num_greetings();
-  public:
-
-  // @@protoc_insertion_point(class_scope:hellostreamingworld.HelloRequest)
+  // @@protoc_insertion_point(class_scope:hellostreamingworld.Request)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr num_greetings_;
+  int32_t integer_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_hellostreamingworld_2eproto;
 };
 // -------------------------------------------------------------------
 
-class HelloReply final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:hellostreamingworld.HelloReply) */ {
+class Response final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:hellostreamingworld.Response) */ {
  public:
-  inline HelloReply() : HelloReply(nullptr) {}
-  ~HelloReply() override;
-  explicit constexpr HelloReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline Response() : Response(nullptr) {}
+  ~Response() override;
+  explicit constexpr Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  HelloReply(const HelloReply& from);
-  HelloReply(HelloReply&& from) noexcept
-    : HelloReply() {
+  Response(const Response& from);
+  Response(Response&& from) noexcept
+    : Response() {
     *this = ::std::move(from);
   }
 
-  inline HelloReply& operator=(const HelloReply& from) {
+  inline Response& operator=(const Response& from) {
     CopyFrom(from);
     return *this;
   }
-  inline HelloReply& operator=(HelloReply&& from) noexcept {
+  inline Response& operator=(Response&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -276,20 +255,20 @@ class HelloReply final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const HelloReply& default_instance() {
+  static const Response& default_instance() {
     return *internal_default_instance();
   }
-  static inline const HelloReply* internal_default_instance() {
-    return reinterpret_cast<const HelloReply*>(
-               &_HelloReply_default_instance_);
+  static inline const Response* internal_default_instance() {
+    return reinterpret_cast<const Response*>(
+               &_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(HelloReply& a, HelloReply& b) {
+  friend void swap(Response& a, Response& b) {
     a.Swap(&b);
   }
-  inline void Swap(HelloReply* other) {
+  inline void Swap(Response* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -302,7 +281,7 @@ class HelloReply final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(HelloReply* other) {
+  void UnsafeArenaSwap(Response* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -310,13 +289,13 @@ class HelloReply final :
 
   // implements Message ----------------------------------------------
 
-  HelloReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<HelloReply>(arena);
+  Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Response>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const HelloReply& from);
+  void CopyFrom(const Response& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const HelloReply& from);
+  void MergeFrom(const Response& from);
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
@@ -333,15 +312,15 @@ class HelloReply final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(HelloReply* other);
+  void InternalSwap(Response* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "hellostreamingworld.HelloReply";
+    return "hellostreamingworld.Response";
   }
   protected:
-  explicit HelloReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
   static void ArenaDtor(void* object);
@@ -358,30 +337,25 @@ class HelloReply final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kMessageFieldNumber = 1,
+    kIntegerFieldNumber = 1,
   };
-  // string message = 1;
-  void clear_message();
-  const std::string& message() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_message(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_message();
-  PROTOBUF_NODISCARD std::string* release_message();
-  void set_allocated_message(std::string* message);
+  // int32 integer = 1;
+  void clear_integer();
+  int32_t integer() const;
+  void set_integer(int32_t value);
   private:
-  const std::string& _internal_message() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_message(const std::string& value);
-  std::string* _internal_mutable_message();
+  int32_t _internal_integer() const;
+  void _internal_set_integer(int32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:hellostreamingworld.HelloReply)
+  // @@protoc_insertion_point(class_scope:hellostreamingworld.Response)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
+  int32_t integer_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_hellostreamingworld_2eproto;
 };
@@ -394,163 +368,50 @@ class HelloReply final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// HelloRequest
+// Request
 
-// string name = 1;
-inline void HelloRequest::clear_name() {
-  name_.ClearToEmpty();
+// int32 integer = 1;
+inline void Request::clear_integer() {
+  integer_ = 0;
 }
-inline const std::string& HelloRequest::name() const {
-  // @@protoc_insertion_point(field_get:hellostreamingworld.HelloRequest.name)
-  return _internal_name();
+inline int32_t Request::_internal_integer() const {
+  return integer_;
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void HelloRequest::set_name(ArgT0&& arg0, ArgT... args) {
- 
- name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:hellostreamingworld.HelloRequest.name)
+inline int32_t Request::integer() const {
+  // @@protoc_insertion_point(field_get:hellostreamingworld.Request.integer)
+  return _internal_integer();
 }
-inline std::string* HelloRequest::mutable_name() {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:hellostreamingworld.HelloRequest.name)
-  return _s;
-}
-inline const std::string& HelloRequest::_internal_name() const {
-  return name_.Get();
-}
-inline void HelloRequest::_internal_set_name(const std::string& value) {
+inline void Request::_internal_set_integer(int32_t value) {
   
-  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  integer_ = value;
 }
-inline std::string* HelloRequest::_internal_mutable_name() {
-  
-  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* HelloRequest::release_name() {
-  // @@protoc_insertion_point(field_release:hellostreamingworld.HelloRequest.name)
-  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void HelloRequest::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
-    
-  } else {
-    
-  }
-  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (name_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:hellostreamingworld.HelloRequest.name)
-}
-
-// string num_greetings = 2;
-inline void HelloRequest::clear_num_greetings() {
-  num_greetings_.ClearToEmpty();
-}
-inline const std::string& HelloRequest::num_greetings() const {
-  // @@protoc_insertion_point(field_get:hellostreamingworld.HelloRequest.num_greetings)
-  return _internal_num_greetings();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void HelloRequest::set_num_greetings(ArgT0&& arg0, ArgT... args) {
- 
- num_greetings_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:hellostreamingworld.HelloRequest.num_greetings)
-}
-inline std::string* HelloRequest::mutable_num_greetings() {
-  std::string* _s = _internal_mutable_num_greetings();
-  // @@protoc_insertion_point(field_mutable:hellostreamingworld.HelloRequest.num_greetings)
-  return _s;
-}
-inline const std::string& HelloRequest::_internal_num_greetings() const {
-  return num_greetings_.Get();
-}
-inline void HelloRequest::_internal_set_num_greetings(const std::string& value) {
-  
-  num_greetings_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* HelloRequest::_internal_mutable_num_greetings() {
-  
-  return num_greetings_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* HelloRequest::release_num_greetings() {
-  // @@protoc_insertion_point(field_release:hellostreamingworld.HelloRequest.num_greetings)
-  return num_greetings_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void HelloRequest::set_allocated_num_greetings(std::string* num_greetings) {
-  if (num_greetings != nullptr) {
-    
-  } else {
-    
-  }
-  num_greetings_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), num_greetings,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (num_greetings_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    num_greetings_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:hellostreamingworld.HelloRequest.num_greetings)
+inline void Request::set_integer(int32_t value) {
+  _internal_set_integer(value);
+  // @@protoc_insertion_point(field_set:hellostreamingworld.Request.integer)
 }
 
 // -------------------------------------------------------------------
 
-// HelloReply
+// Response
 
-// string message = 1;
-inline void HelloReply::clear_message() {
-  message_.ClearToEmpty();
+// int32 integer = 1;
+inline void Response::clear_integer() {
+  integer_ = 0;
 }
-inline const std::string& HelloReply::message() const {
-  // @@protoc_insertion_point(field_get:hellostreamingworld.HelloReply.message)
-  return _internal_message();
+inline int32_t Response::_internal_integer() const {
+  return integer_;
 }
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void HelloReply::set_message(ArgT0&& arg0, ArgT... args) {
- 
- message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:hellostreamingworld.HelloReply.message)
+inline int32_t Response::integer() const {
+  // @@protoc_insertion_point(field_get:hellostreamingworld.Response.integer)
+  return _internal_integer();
 }
-inline std::string* HelloReply::mutable_message() {
-  std::string* _s = _internal_mutable_message();
-  // @@protoc_insertion_point(field_mutable:hellostreamingworld.HelloReply.message)
-  return _s;
-}
-inline const std::string& HelloReply::_internal_message() const {
-  return message_.Get();
-}
-inline void HelloReply::_internal_set_message(const std::string& value) {
+inline void Response::_internal_set_integer(int32_t value) {
   
-  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+  integer_ = value;
 }
-inline std::string* HelloReply::_internal_mutable_message() {
-  
-  return message_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* HelloReply::release_message() {
-  // @@protoc_insertion_point(field_release:hellostreamingworld.HelloReply.message)
-  return message_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void HelloReply::set_allocated_message(std::string* message) {
-  if (message != nullptr) {
-    
-  } else {
-    
-  }
-  message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), message,
-      GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (message_.IsDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited())) {
-    message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:hellostreamingworld.HelloReply.message)
+inline void Response::set_integer(int32_t value) {
+  _internal_set_integer(value);
+  // @@protoc_insertion_point(field_set:hellostreamingworld.Response.integer)
 }
 
 #ifdef __GNUC__

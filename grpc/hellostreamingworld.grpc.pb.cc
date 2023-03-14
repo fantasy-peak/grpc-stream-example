@@ -21,56 +21,167 @@
 #include <grpcpp/impl/codegen/sync_stream.h>
 namespace hellostreamingworld {
 
-static const char* MultiGreeter_method_names[] = {
-  "/hellostreamingworld.MultiGreeter/sayHello",
+static const char* Example_method_names[] = {
+  "/hellostreamingworld.Example/ServerStreaming",
+  "/hellostreamingworld.Example/ClientStreaming",
+  "/hellostreamingworld.Example/BidirectionalStreaming",
+  "/hellostreamingworld.Example/Unary",
 };
 
-std::unique_ptr< MultiGreeter::Stub> MultiGreeter::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+std::unique_ptr< Example::Stub> Example::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< MultiGreeter::Stub> stub(new MultiGreeter::Stub(channel, options));
+  std::unique_ptr< Example::Stub> stub(new Example::Stub(channel, options));
   return stub;
 }
 
-MultiGreeter::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_sayHello_(MultiGreeter_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+Example::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_ServerStreaming_(Example_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  , rpcmethod_ClientStreaming_(Example_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::CLIENT_STREAMING, channel)
+  , rpcmethod_BidirectionalStreaming_(Example_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
+  , rpcmethod_Unary_(Example_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::ClientReader< ::hellostreamingworld::HelloReply>* MultiGreeter::Stub::sayHelloRaw(::grpc::ClientContext* context, const ::hellostreamingworld::HelloRequest& request) {
-  return ::grpc::internal::ClientReaderFactory< ::hellostreamingworld::HelloReply>::Create(channel_.get(), rpcmethod_sayHello_, context, request);
+::grpc::ClientReader< ::hellostreamingworld::Response>* Example::Stub::ServerStreamingRaw(::grpc::ClientContext* context, const ::hellostreamingworld::Request& request) {
+  return ::grpc::internal::ClientReaderFactory< ::hellostreamingworld::Response>::Create(channel_.get(), rpcmethod_ServerStreaming_, context, request);
 }
 
-void MultiGreeter::Stub::async::sayHello(::grpc::ClientContext* context, const ::hellostreamingworld::HelloRequest* request, ::grpc::ClientReadReactor< ::hellostreamingworld::HelloReply>* reactor) {
-  ::grpc::internal::ClientCallbackReaderFactory< ::hellostreamingworld::HelloReply>::Create(stub_->channel_.get(), stub_->rpcmethod_sayHello_, context, request, reactor);
+void Example::Stub::async::ServerStreaming(::grpc::ClientContext* context, const ::hellostreamingworld::Request* request, ::grpc::ClientReadReactor< ::hellostreamingworld::Response>* reactor) {
+  ::grpc::internal::ClientCallbackReaderFactory< ::hellostreamingworld::Response>::Create(stub_->channel_.get(), stub_->rpcmethod_ServerStreaming_, context, request, reactor);
 }
 
-::grpc::ClientAsyncReader< ::hellostreamingworld::HelloReply>* MultiGreeter::Stub::AsyncsayHelloRaw(::grpc::ClientContext* context, const ::hellostreamingworld::HelloRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::hellostreamingworld::HelloReply>::Create(channel_.get(), cq, rpcmethod_sayHello_, context, request, true, tag);
+::grpc::ClientAsyncReader< ::hellostreamingworld::Response>* Example::Stub::AsyncServerStreamingRaw(::grpc::ClientContext* context, const ::hellostreamingworld::Request& request, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::hellostreamingworld::Response>::Create(channel_.get(), cq, rpcmethod_ServerStreaming_, context, request, true, tag);
 }
 
-::grpc::ClientAsyncReader< ::hellostreamingworld::HelloReply>* MultiGreeter::Stub::PrepareAsyncsayHelloRaw(::grpc::ClientContext* context, const ::hellostreamingworld::HelloRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::hellostreamingworld::HelloReply>::Create(channel_.get(), cq, rpcmethod_sayHello_, context, request, false, nullptr);
+::grpc::ClientAsyncReader< ::hellostreamingworld::Response>* Example::Stub::PrepareAsyncServerStreamingRaw(::grpc::ClientContext* context, const ::hellostreamingworld::Request& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderFactory< ::hellostreamingworld::Response>::Create(channel_.get(), cq, rpcmethod_ServerStreaming_, context, request, false, nullptr);
 }
 
-MultiGreeter::Service::Service() {
+::grpc::ClientWriter< ::hellostreamingworld::Request>* Example::Stub::ClientStreamingRaw(::grpc::ClientContext* context, ::hellostreamingworld::Response* response) {
+  return ::grpc::internal::ClientWriterFactory< ::hellostreamingworld::Request>::Create(channel_.get(), rpcmethod_ClientStreaming_, context, response);
+}
+
+void Example::Stub::async::ClientStreaming(::grpc::ClientContext* context, ::hellostreamingworld::Response* response, ::grpc::ClientWriteReactor< ::hellostreamingworld::Request>* reactor) {
+  ::grpc::internal::ClientCallbackWriterFactory< ::hellostreamingworld::Request>::Create(stub_->channel_.get(), stub_->rpcmethod_ClientStreaming_, context, response, reactor);
+}
+
+::grpc::ClientAsyncWriter< ::hellostreamingworld::Request>* Example::Stub::AsyncClientStreamingRaw(::grpc::ClientContext* context, ::hellostreamingworld::Response* response, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::hellostreamingworld::Request>::Create(channel_.get(), cq, rpcmethod_ClientStreaming_, context, response, true, tag);
+}
+
+::grpc::ClientAsyncWriter< ::hellostreamingworld::Request>* Example::Stub::PrepareAsyncClientStreamingRaw(::grpc::ClientContext* context, ::hellostreamingworld::Response* response, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncWriterFactory< ::hellostreamingworld::Request>::Create(channel_.get(), cq, rpcmethod_ClientStreaming_, context, response, false, nullptr);
+}
+
+::grpc::ClientReaderWriter< ::hellostreamingworld::Request, ::hellostreamingworld::Response>* Example::Stub::BidirectionalStreamingRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::hellostreamingworld::Request, ::hellostreamingworld::Response>::Create(channel_.get(), rpcmethod_BidirectionalStreaming_, context);
+}
+
+void Example::Stub::async::BidirectionalStreaming(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::hellostreamingworld::Request,::hellostreamingworld::Response>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::hellostreamingworld::Request,::hellostreamingworld::Response>::Create(stub_->channel_.get(), stub_->rpcmethod_BidirectionalStreaming_, context, reactor);
+}
+
+::grpc::ClientAsyncReaderWriter< ::hellostreamingworld::Request, ::hellostreamingworld::Response>* Example::Stub::AsyncBidirectionalStreamingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::hellostreamingworld::Request, ::hellostreamingworld::Response>::Create(channel_.get(), cq, rpcmethod_BidirectionalStreaming_, context, true, tag);
+}
+
+::grpc::ClientAsyncReaderWriter< ::hellostreamingworld::Request, ::hellostreamingworld::Response>* Example::Stub::PrepareAsyncBidirectionalStreamingRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::hellostreamingworld::Request, ::hellostreamingworld::Response>::Create(channel_.get(), cq, rpcmethod_BidirectionalStreaming_, context, false, nullptr);
+}
+
+::grpc::Status Example::Stub::Unary(::grpc::ClientContext* context, const ::hellostreamingworld::Request& request, ::hellostreamingworld::Response* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::hellostreamingworld::Request, ::hellostreamingworld::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_Unary_, context, request, response);
+}
+
+void Example::Stub::async::Unary(::grpc::ClientContext* context, const ::hellostreamingworld::Request* request, ::hellostreamingworld::Response* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::hellostreamingworld::Request, ::hellostreamingworld::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Unary_, context, request, response, std::move(f));
+}
+
+void Example::Stub::async::Unary(::grpc::ClientContext* context, const ::hellostreamingworld::Request* request, ::hellostreamingworld::Response* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_Unary_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::hellostreamingworld::Response>* Example::Stub::PrepareAsyncUnaryRaw(::grpc::ClientContext* context, const ::hellostreamingworld::Request& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::hellostreamingworld::Response, ::hellostreamingworld::Request, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_Unary_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::hellostreamingworld::Response>* Example::Stub::AsyncUnaryRaw(::grpc::ClientContext* context, const ::hellostreamingworld::Request& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncUnaryRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+Example::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      MultiGreeter_method_names[0],
+      Example_method_names[0],
       ::grpc::internal::RpcMethod::SERVER_STREAMING,
-      new ::grpc::internal::ServerStreamingHandler< MultiGreeter::Service, ::hellostreamingworld::HelloRequest, ::hellostreamingworld::HelloReply>(
-          [](MultiGreeter::Service* service,
+      new ::grpc::internal::ServerStreamingHandler< Example::Service, ::hellostreamingworld::Request, ::hellostreamingworld::Response>(
+          [](Example::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::hellostreamingworld::HelloRequest* req,
-             ::grpc::ServerWriter<::hellostreamingworld::HelloReply>* writer) {
-               return service->sayHello(ctx, req, writer);
+             const ::hellostreamingworld::Request* req,
+             ::grpc::ServerWriter<::hellostreamingworld::Response>* writer) {
+               return service->ServerStreaming(ctx, req, writer);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Example_method_names[1],
+      ::grpc::internal::RpcMethod::CLIENT_STREAMING,
+      new ::grpc::internal::ClientStreamingHandler< Example::Service, ::hellostreamingworld::Request, ::hellostreamingworld::Response>(
+          [](Example::Service* service,
+             ::grpc::ServerContext* ctx,
+             ::grpc::ServerReader<::hellostreamingworld::Request>* reader,
+             ::hellostreamingworld::Response* resp) {
+               return service->ClientStreaming(ctx, reader, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Example_method_names[2],
+      ::grpc::internal::RpcMethod::BIDI_STREAMING,
+      new ::grpc::internal::BidiStreamingHandler< Example::Service, ::hellostreamingworld::Request, ::hellostreamingworld::Response>(
+          [](Example::Service* service,
+             ::grpc::ServerContext* ctx,
+             ::grpc::ServerReaderWriter<::hellostreamingworld::Response,
+             ::hellostreamingworld::Request>* stream) {
+               return service->BidirectionalStreaming(ctx, stream);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Example_method_names[3],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Example::Service, ::hellostreamingworld::Request, ::hellostreamingworld::Response, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Example::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::hellostreamingworld::Request* req,
+             ::hellostreamingworld::Response* resp) {
+               return service->Unary(ctx, req, resp);
              }, this)));
 }
 
-MultiGreeter::Service::~Service() {
+Example::Service::~Service() {
 }
 
-::grpc::Status MultiGreeter::Service::sayHello(::grpc::ServerContext* context, const ::hellostreamingworld::HelloRequest* request, ::grpc::ServerWriter< ::hellostreamingworld::HelloReply>* writer) {
+::grpc::Status Example::Service::ServerStreaming(::grpc::ServerContext* context, const ::hellostreamingworld::Request* request, ::grpc::ServerWriter< ::hellostreamingworld::Response>* writer) {
   (void) context;
   (void) request;
   (void) writer;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Example::Service::ClientStreaming(::grpc::ServerContext* context, ::grpc::ServerReader< ::hellostreamingworld::Request>* reader, ::hellostreamingworld::Response* response) {
+  (void) context;
+  (void) reader;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Example::Service::BidirectionalStreaming(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::hellostreamingworld::Response, ::hellostreamingworld::Request>* stream) {
+  (void) context;
+  (void) stream;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Example::Service::Unary(::grpc::ServerContext* context, const ::hellostreamingworld::Request* request, ::hellostreamingworld::Response* response) {
+  (void) context;
+  (void) request;
+  (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 

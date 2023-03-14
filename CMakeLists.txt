@@ -34,6 +34,9 @@ execute_process(COMMAND ${CMAKE_SOURCE_DIR}/bin/protoc
     --plugin=protoc-gen-grpc=${CMAKE_SOURCE_DIR}/bin/grpc_cpp_plugin ${CMAKE_SOURCE_DIR}/bin/hellostreamingworld.proto)
 
 #----------------------------------------------------------------------------------
+set(XREPO_XMAKEFILE ${CMAKE_CURRENT_SOURCE_DIR}/repo/packages/a/asio-grpc/xmake.lua)
+xrepo_package("asio-grpc" DEPS "asio")
+
 set(XREPO_XMAKEFILE ${CMAKE_CURRENT_SOURCE_DIR}/repo/packages/g/grpc/xmake.lua)
 xrepo_package("grpc" DEPS "abseil" "c-ares" "protobuf-cpp" "re2" "openssl" "zlib" )
 find_package(gRPC CONFIG REQUIRED)
@@ -41,12 +44,23 @@ find_package(gRPC CONFIG REQUIRED)
 
 include_directories(grpc)
 
-add_executable(test_grpc_stream
-    src/test_grpc_stream.cpp
+add_executable(grpc_stream_server
+    src/grpc_stream_server.cpp
     grpc/hellostreamingworld.grpc.pb.cc
     grpc/hellostreamingworld.pb.cc
 )
-xrepo_target_packages(test_grpc_stream PUBLIC grpc NO_LINK_LIBRARIES)
-target_link_libraries(test_grpc_stream PUBLIC gRPC::gpr gRPC::upb gRPC::grpc gRPC::grpc++ ssl crypto pthread dl
+xrepo_target_packages(grpc_stream_server PUBLIC grpc asio-grpc NO_LINK_LIBRARIES)
+target_link_libraries(grpc_stream_server PUBLIC
+    gRPC::gpr gRPC::upb gRPC::grpc gRPC::grpc++ ssl crypto pthread dl
+)
+
+add_executable(grpc_stream_client
+    src/grpc_stream_client.cpp
+    grpc/hellostreamingworld.grpc.pb.cc
+    grpc/hellostreamingworld.pb.cc
+)
+xrepo_target_packages(grpc_stream_client PUBLIC grpc asio-grpc NO_LINK_LIBRARIES)
+target_link_libraries(grpc_stream_client PUBLIC
+    gRPC::gpr gRPC::upb gRPC::grpc gRPC::grpc++ ssl crypto pthread dl
 )
 

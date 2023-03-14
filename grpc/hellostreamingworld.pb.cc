@@ -17,31 +17,30 @@
 
 PROTOBUF_PRAGMA_INIT_SEG
 namespace hellostreamingworld {
-constexpr HelloRequest::HelloRequest(
+constexpr Request::Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , num_greetings_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
-struct HelloRequestDefaultTypeInternal {
-  constexpr HelloRequestDefaultTypeInternal()
+  : integer_(0){}
+struct RequestDefaultTypeInternal {
+  constexpr RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~HelloRequestDefaultTypeInternal() {}
+  ~RequestDefaultTypeInternal() {}
   union {
-    HelloRequest _instance;
+    Request _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT HelloRequestDefaultTypeInternal _HelloRequest_default_instance_;
-constexpr HelloReply::HelloReply(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RequestDefaultTypeInternal _Request_default_instance_;
+constexpr Response::Response(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
-struct HelloReplyDefaultTypeInternal {
-  constexpr HelloReplyDefaultTypeInternal()
+  : integer_(0){}
+struct ResponseDefaultTypeInternal {
+  constexpr ResponseDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~HelloReplyDefaultTypeInternal() {}
+  ~ResponseDefaultTypeInternal() {}
   union {
-    HelloReply _instance;
+    Response _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT HelloReplyDefaultTypeInternal _HelloReply_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ResponseDefaultTypeInternal _Response_default_instance_;
 }  // namespace hellostreamingworld
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_hellostreamingworld_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_hellostreamingworld_2eproto = nullptr;
@@ -49,43 +48,47 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_s
 
 const uint32_t TableStruct_hellostreamingworld_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::hellostreamingworld::HelloRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::hellostreamingworld::Request, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::hellostreamingworld::HelloRequest, name_),
-  PROTOBUF_FIELD_OFFSET(::hellostreamingworld::HelloRequest, num_greetings_),
+  PROTOBUF_FIELD_OFFSET(::hellostreamingworld::Request, integer_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::hellostreamingworld::HelloReply, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::hellostreamingworld::Response, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::hellostreamingworld::HelloReply, message_),
+  PROTOBUF_FIELD_OFFSET(::hellostreamingworld::Response, integer_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::hellostreamingworld::HelloRequest)},
-  { 8, -1, -1, sizeof(::hellostreamingworld::HelloReply)},
+  { 0, -1, -1, sizeof(::hellostreamingworld::Request)},
+  { 7, -1, -1, sizeof(::hellostreamingworld::Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hellostreamingworld::_HelloRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hellostreamingworld::_HelloReply_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hellostreamingworld::_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::hellostreamingworld::_Response_default_instance_),
 };
 
 const char descriptor_table_protodef_hellostreamingworld_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\031hellostreamingworld.proto\022\023hellostream"
-  "ingworld\"3\n\014HelloRequest\022\014\n\004name\030\001 \001(\t\022\025"
-  "\n\rnum_greetings\030\002 \001(\t\"\035\n\nHelloReply\022\017\n\007m"
-  "essage\030\001 \001(\t2b\n\014MultiGreeter\022R\n\010sayHello"
-  "\022!.hellostreamingworld.HelloRequest\032\037.he"
-  "llostreamingworld.HelloReply\"\0000\001B\017\n\007ex.g"
-  "rpc\242\002\003HSWb\006proto3"
+  "ingworld\"\032\n\007Request\022\017\n\007integer\030\001 \001(\005\"\033\n\010"
+  "Response\022\017\n\007integer\030\001 \001(\0052\326\002\n\007Example\022R\n"
+  "\017ServerStreaming\022\034.hellostreamingworld.R"
+  "equest\032\035.hellostreamingworld.Response\"\0000"
+  "\001\022R\n\017ClientStreaming\022\034.hellostreamingwor"
+  "ld.Request\032\035.hellostreamingworld.Respons"
+  "e\"\000(\001\022[\n\026BidirectionalStreaming\022\034.hellos"
+  "treamingworld.Request\032\035.hellostreamingwo"
+  "rld.Response\"\000(\0010\001\022F\n\005Unary\022\034.hellostrea"
+  "mingworld.Request\032\035.hellostreamingworld."
+  "Response\"\000B\017\n\007ex.grpc\242\002\003HSWb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_hellostreamingworld_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hellostreamingworld_2eproto = {
-  false, false, 257, descriptor_table_protodef_hellostreamingworld_2eproto, "hellostreamingworld.proto", 
+  false, false, 475, descriptor_table_protodef_hellostreamingworld_2eproto, "hellostreamingworld.proto", 
   &descriptor_table_hellostreamingworld_2eproto_once, nullptr, 0, 2,
   schemas, file_default_instances, TableStruct_hellostreamingworld_2eproto::offsets,
   file_level_metadata_hellostreamingworld_2eproto, file_level_enum_descriptors_hellostreamingworld_2eproto, file_level_service_descriptors_hellostreamingworld_2eproto,
@@ -100,108 +103,71 @@ namespace hellostreamingworld {
 
 // ===================================================================
 
-class HelloRequest::_Internal {
+class Request::_Internal {
  public:
 };
 
-HelloRequest::HelloRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+Request::Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:hellostreamingworld.HelloRequest)
+  // @@protoc_insertion_point(arena_constructor:hellostreamingworld.Request)
 }
-HelloRequest::HelloRequest(const HelloRequest& from)
+Request::Request(const Request& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_name().empty()) {
-    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
-      GetArenaForAllocation());
-  }
-  num_greetings_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    num_greetings_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_num_greetings().empty()) {
-    num_greetings_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_num_greetings(), 
-      GetArenaForAllocation());
-  }
-  // @@protoc_insertion_point(copy_constructor:hellostreamingworld.HelloRequest)
+  integer_ = from.integer_;
+  // @@protoc_insertion_point(copy_constructor:hellostreamingworld.Request)
 }
 
-inline void HelloRequest::SharedCtor() {
-name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-num_greetings_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  num_greetings_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void Request::SharedCtor() {
+integer_ = 0;
 }
 
-HelloRequest::~HelloRequest() {
-  // @@protoc_insertion_point(destructor:hellostreamingworld.HelloRequest)
+Request::~Request() {
+  // @@protoc_insertion_point(destructor:hellostreamingworld.Request)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void HelloRequest::SharedDtor() {
+inline void Request::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  num_greetings_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void HelloRequest::ArenaDtor(void* object) {
-  HelloRequest* _this = reinterpret_cast< HelloRequest* >(object);
+void Request::ArenaDtor(void* object) {
+  Request* _this = reinterpret_cast< Request* >(object);
   (void)_this;
 }
-void HelloRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void HelloRequest::SetCachedSize(int size) const {
+void Request::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void HelloRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:hellostreamingworld.HelloRequest)
+void Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:hellostreamingworld.Request)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  num_greetings_.ClearToEmpty();
+  integer_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* HelloRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string name = 1;
+      // int32 integer = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hellostreamingworld.HelloRequest.name"));
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // string num_greetings = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_num_greetings();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hellostreamingworld.HelloRequest.num_greetings"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          integer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -229,122 +195,85 @@ failure:
 #undef CHK_
 }
 
-uint8_t* HelloRequest::_InternalSerialize(
+uint8_t* Request::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hellostreamingworld.HelloRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:hellostreamingworld.Request)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string name = 1;
-  if (!this->_internal_name().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "hellostreamingworld.HelloRequest.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
-  }
-
-  // string num_greetings = 2;
-  if (!this->_internal_num_greetings().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_num_greetings().data(), static_cast<int>(this->_internal_num_greetings().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "hellostreamingworld.HelloRequest.num_greetings");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_num_greetings(), target);
+  // int32 integer = 1;
+  if (this->_internal_integer() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_integer(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:hellostreamingworld.HelloRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:hellostreamingworld.Request)
   return target;
 }
 
-size_t HelloRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hellostreamingworld.HelloRequest)
+size_t Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:hellostreamingworld.Request)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string name = 1;
-  if (!this->_internal_name().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
-  }
-
-  // string num_greetings = 2;
-  if (!this->_internal_num_greetings().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_num_greetings());
+  // int32 integer = 1;
+  if (this->_internal_integer() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_integer());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData HelloRequest::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Request::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    HelloRequest::MergeImpl
+    Request::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*HelloRequest::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Request::GetClassData() const { return &_class_data_; }
 
-void HelloRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void Request::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<HelloRequest *>(to)->MergeFrom(
-      static_cast<const HelloRequest &>(from));
+  static_cast<Request *>(to)->MergeFrom(
+      static_cast<const Request &>(from));
 }
 
 
-void HelloRequest::MergeFrom(const HelloRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hellostreamingworld.HelloRequest)
+void Request::MergeFrom(const Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:hellostreamingworld.Request)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_name().empty()) {
-    _internal_set_name(from._internal_name());
-  }
-  if (!from._internal_num_greetings().empty()) {
-    _internal_set_num_greetings(from._internal_num_greetings());
+  if (from._internal_integer() != 0) {
+    _internal_set_integer(from._internal_integer());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void HelloRequest::CopyFrom(const HelloRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hellostreamingworld.HelloRequest)
+void Request::CopyFrom(const Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hellostreamingworld.Request)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool HelloRequest::IsInitialized() const {
+bool Request::IsInitialized() const {
   return true;
 }
 
-void HelloRequest::InternalSwap(HelloRequest* other) {
+void Request::InternalSwap(Request* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &name_, lhs_arena,
-      &other->name_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &num_greetings_, lhs_arena,
-      &other->num_greetings_, rhs_arena
-  );
+  swap(integer_, other->integer_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata HelloRequest::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata Request::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_hellostreamingworld_2eproto_getter, &descriptor_table_hellostreamingworld_2eproto_once,
       file_level_metadata_hellostreamingworld_2eproto[0]);
@@ -352,84 +281,71 @@ void HelloRequest::InternalSwap(HelloRequest* other) {
 
 // ===================================================================
 
-class HelloReply::_Internal {
+class Response::_Internal {
  public:
 };
 
-HelloReply::HelloReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+Response::Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
   }
-  // @@protoc_insertion_point(arena_constructor:hellostreamingworld.HelloReply)
+  // @@protoc_insertion_point(arena_constructor:hellostreamingworld.Response)
 }
-HelloReply::HelloReply(const HelloReply& from)
+Response::Response(const Response& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (!from._internal_message().empty()) {
-    message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_message(), 
-      GetArenaForAllocation());
-  }
-  // @@protoc_insertion_point(copy_constructor:hellostreamingworld.HelloReply)
+  integer_ = from.integer_;
+  // @@protoc_insertion_point(copy_constructor:hellostreamingworld.Response)
 }
 
-inline void HelloReply::SharedCtor() {
-message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void Response::SharedCtor() {
+integer_ = 0;
 }
 
-HelloReply::~HelloReply() {
-  // @@protoc_insertion_point(destructor:hellostreamingworld.HelloReply)
+Response::~Response() {
+  // @@protoc_insertion_point(destructor:hellostreamingworld.Response)
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-inline void HelloReply::SharedDtor() {
+inline void Response::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void HelloReply::ArenaDtor(void* object) {
-  HelloReply* _this = reinterpret_cast< HelloReply* >(object);
+void Response::ArenaDtor(void* object) {
+  Response* _this = reinterpret_cast< Response* >(object);
   (void)_this;
 }
-void HelloReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void HelloReply::SetCachedSize(int size) const {
+void Response::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void HelloReply::Clear() {
-// @@protoc_insertion_point(message_clear_start:hellostreamingworld.HelloReply)
+void Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:hellostreamingworld.Response)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  message_.ClearToEmpty();
+  integer_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* HelloReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string message = 1;
+      // int32 integer = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_message();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "hellostreamingworld.HelloReply.message"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          integer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -457,97 +373,85 @@ failure:
 #undef CHK_
 }
 
-uint8_t* HelloReply::_InternalSerialize(
+uint8_t* Response::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:hellostreamingworld.HelloReply)
+  // @@protoc_insertion_point(serialize_to_array_start:hellostreamingworld.Response)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string message = 1;
-  if (!this->_internal_message().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_message().data(), static_cast<int>(this->_internal_message().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "hellostreamingworld.HelloReply.message");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_message(), target);
+  // int32 integer = 1;
+  if (this->_internal_integer() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_integer(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:hellostreamingworld.HelloReply)
+  // @@protoc_insertion_point(serialize_to_array_end:hellostreamingworld.Response)
   return target;
 }
 
-size_t HelloReply::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:hellostreamingworld.HelloReply)
+size_t Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:hellostreamingworld.Response)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string message = 1;
-  if (!this->_internal_message().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_message());
+  // int32 integer = 1;
+  if (this->_internal_integer() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_integer());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData HelloReply::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Response::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    HelloReply::MergeImpl
+    Response::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*HelloReply::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Response::GetClassData() const { return &_class_data_; }
 
-void HelloReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+void Response::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
                       const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<HelloReply *>(to)->MergeFrom(
-      static_cast<const HelloReply &>(from));
+  static_cast<Response *>(to)->MergeFrom(
+      static_cast<const Response &>(from));
 }
 
 
-void HelloReply::MergeFrom(const HelloReply& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:hellostreamingworld.HelloReply)
+void Response::MergeFrom(const Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:hellostreamingworld.Response)
   GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (!from._internal_message().empty()) {
-    _internal_set_message(from._internal_message());
+  if (from._internal_integer() != 0) {
+    _internal_set_integer(from._internal_integer());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void HelloReply::CopyFrom(const HelloReply& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:hellostreamingworld.HelloReply)
+void Response::CopyFrom(const Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:hellostreamingworld.Response)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool HelloReply::IsInitialized() const {
+bool Response::IsInitialized() const {
   return true;
 }
 
-void HelloReply::InternalSwap(HelloReply* other) {
+void Response::InternalSwap(Response* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &message_, lhs_arena,
-      &other->message_, rhs_arena
-  );
+  swap(integer_, other->integer_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata HelloReply::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata Response::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_hellostreamingworld_2eproto_getter, &descriptor_table_hellostreamingworld_2eproto_once,
       file_level_metadata_hellostreamingworld_2eproto[1]);
@@ -556,11 +460,11 @@ void HelloReply::InternalSwap(HelloReply* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace hellostreamingworld
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::hellostreamingworld::HelloRequest* Arena::CreateMaybeMessage< ::hellostreamingworld::HelloRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::hellostreamingworld::HelloRequest >(arena);
+template<> PROTOBUF_NOINLINE ::hellostreamingworld::Request* Arena::CreateMaybeMessage< ::hellostreamingworld::Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::hellostreamingworld::Request >(arena);
 }
-template<> PROTOBUF_NOINLINE ::hellostreamingworld::HelloReply* Arena::CreateMaybeMessage< ::hellostreamingworld::HelloReply >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::hellostreamingworld::HelloReply >(arena);
+template<> PROTOBUF_NOINLINE ::hellostreamingworld::Response* Arena::CreateMaybeMessage< ::hellostreamingworld::Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::hellostreamingworld::Response >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
