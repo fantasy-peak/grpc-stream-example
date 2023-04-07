@@ -35,7 +35,7 @@ asio::awaitable<void> make_bidirectional_streaming_request(hellostreamingworld::
 	auto [read_ok, write_ok] = co_await (agrpc::read(reader_writer, response) && agrpc::write(reader_writer, request));
 
 	int count{};
-	while (read_ok && write_ok && count < 1) {
+	while (read_ok && write_ok && count < 10) {
 		std::cout << "Bidirectional streaming: " << response.integer() << '\n';
 		request.set_integer(response.integer());
 		++count;
